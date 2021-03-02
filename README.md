@@ -1,3 +1,3 @@
 # sandromiccoli.github.io
 
-Experiments for the Web
+Creating Coding Experiments for the Web
