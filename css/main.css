@@ -1288,11 +1288,11 @@
 			-ms-transition-delay: 1s;
 			transition-delay: 1s;
 			content: '';
-			background-color: #42424f;
+			background-color: #000000;
 			display: block;
 			height: 100%;
 			left: 0;
-			opacity: 0.45;
+			opacity: 0.75;
 			position: absolute;
 			top: 0;
 			width: 100%;
