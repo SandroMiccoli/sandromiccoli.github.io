@@ -18,10 +18,10 @@ let lerp_color = false;
 let cnv;
 
 function setup(){
-  cnv = createCanvas(windowWidth, windowWidth);
+  cnv = createCanvas(windowHeight*0.5, windowHeight*0.5);
   cnv.parent("live");
 
-  canvas = windowWidth;
+  canvas = windowHeight*0.5;
   full_size = 64;
   pixel = canvas/full_size;
   half_size = full_size/2;
