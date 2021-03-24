@@ -2,15 +2,15 @@
 // by @sandromiccoli
 // 21/03/2021
 
-const canvas = 750;
-const full_size = 64;
-const pixel = canvas/full_size;
-const half_size = full_size/2;
+let canvas;
+let full_size;
+let pixel;
+let half_size;
 
-let quarter_matrix = new Array(half_size).fill(0).map(() => new Array(half_size).fill(0));
-let quarter_matrix_from = new Array(half_size).fill(0).map(() => new Array(half_size).fill(0));
-let quarter_matrix_to = new Array(half_size).fill(0).map(() => new Array(half_size).fill(0));
-const seed = 'tz1Q4r6CMMNRvvQBZUFU5za4aTFZpC43rX8G'
+let quarter_matrix;
+let quarter_matrix_from;
+let quarter_matrix_to;
+let seed;
 
 let lerp = 0;
 let inc = 0.05;
@@ -18,8 +18,18 @@ let lerp_color = false;
 let cnv;
 
 function setup(){
-  cnv = createCanvas(canvas, canvas);
+  cnv = createCanvas(windowWidth, windowWidth);
   cnv.parent("live");
+
+  canvas = windowWidth;
+  full_size = 64;
+  pixel = canvas/full_size;
+  half_size = full_size/2;
+
+  quarter_matrix = new Array(half_size).fill(0).map(() => new Array(half_size).fill(0));
+  quarter_matrix_from = new Array(half_size).fill(0).map(() => new Array(half_size).fill(0));
+  quarter_matrix_to = new Array(half_size).fill(0).map(() => new Array(half_size).fill(0));
+  seed = 'tz1Q4r6CMMNRvvQBZUFU5za4aTFZpC43rX8G'
 
   noiseSeed(seed.hashCode());
   for (var row = 0; row < half_size; row++) 
