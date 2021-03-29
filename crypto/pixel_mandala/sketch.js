@@ -17,11 +17,34 @@ let inc = 0.05;
 let lerp_color = false;
 let cnv;
 
+function changeCanvasResolution(res){
+  canvas = windowHeight*0.75;
+  full_size = res;
+  pixel = canvas/full_size;
+  half_size = full_size/2;
+
+  quarter_matrix = new Array(half_size).fill(random(0,255)).map(() => new Array(half_size).fill(random(0,255)));
+  quarter_matrix_from = new Array(half_size).fill(random(0,255)).map(() => new Array(half_size).fill(random(0,255)));
+  quarter_matrix_to = new Array(half_size).fill(random(0,255)).map(() => new Array(half_size).fill(random(0,255)));
+
+  generateNextColor();
+}
+
 function setup(){
-  cnv = createCanvas(windowHeight*0.5, windowHeight*0.5);
+  cnv = createCanvas(windowHeight*0.75, windowHeight*0.75);
   cnv.parent("live");
 
-  canvas = windowHeight*0.5;
+  button = createButton('64x64');
+  button.class("style3 space");
+  button.parent("live_btns");
+  button.mousePressed(()=>{changeCanvasResolution(64);});
+
+  button = createButton('32x32');
+  button.class("style3 space");
+  button.parent("live_btns");
+  button.mousePressed(()=>{changeCanvasResolution(32);});
+
+  canvas = windowHeight*0.75;
   full_size = 64;
   pixel = canvas/full_size;
   half_size = full_size/2;
@@ -75,6 +98,7 @@ function generateNextColor(){
       quarter_matrix_to[col][row] = (quarter_matrix_to[col][row]>140) ? map(quarter_matrix_to[col][row],0,320,100,240) : map(quarter_matrix_to[col][row],0,320,25,50);
     }
 }
+
 
 function lerpColors(){
   if(lerp_color){
