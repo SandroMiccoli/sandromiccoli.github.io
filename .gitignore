@@ -1,1 +1,7 @@
 assets/
+node_modules/
+.vscode/
+wip/
+package*json
+_base*/
+*template/
