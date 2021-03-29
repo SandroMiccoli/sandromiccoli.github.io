@@ -1,8 +1,8 @@
 
 var c = ["#00A0B0", "#6A4A3C", "#CC333F", "#EB6841", "#EDC951"];
-
+let cnv;
 function setup(){
-  var cnv = createCanvas(windowWidth, windowHeight);
+  cnv = createCanvas(720, 720);
   cnv.position(0,0);
   cnv.style('position', 'fixed');
   cnv.style('display', 'block');
@@ -22,9 +22,9 @@ function draw(){
     var x2 = x1+ran;
     var y2 = y1;
     var r = int(random(5));
-    strokeWeight(4.1);
+    strokeWeight(height*0.002);
     stroke(c[int(r)]);
-	strokeCap(SQUARE);
+	  strokeCap(SQUARE);
     line(x1, y1, x2, y2);
     line(width,y1,width-ran,y2);
     pop();
@@ -34,3 +34,9 @@ function draw(){
 window.onresize = function() {
   canvas.size(windowWidth, windowHeight);
 };
+
+function keyTyped() {
+  if (key === 's') {
+    saveCanvas(cnv, 'horizontalLines', 'png');
+  }
+}

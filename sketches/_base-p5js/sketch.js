@@ -1,5 +1,5 @@
 function setup(){
-  var cnv = createCanvas(displayWidth, displayHeight);
+  var cnv = createCanvas(windowWidth, windowHeight);
   cnv.position(0,0);
   cnv.style('position', 'fixed');
   cnv.style('display', 'block');
@@ -11,4 +11,8 @@ function draw(){
   fill(0);
   stroke(255,0,0)
   ellipse(mouseX,mouseY,50,50);
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
