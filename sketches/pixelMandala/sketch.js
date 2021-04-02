@@ -21,12 +21,12 @@ let lerp_color = false;
 let cnv;
 
 function setup(){
-  // let s = (windowHeight<windowWidth) ? windowHeight : windowWidth;
-  let s = 1080;
+  let s = (windowHeight<windowWidth) ? windowHeight : windowWidth;
+  // let s = 1080;
   cnv = createCanvas(s, s);
 
   canvas = s;
-  full_size = 32;
+  full_size = 64;
   pixel = canvas/full_size;
   half_size = full_size/2;
 
