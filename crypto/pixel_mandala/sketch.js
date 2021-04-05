@@ -44,6 +44,21 @@ function setup(){
   button.parent("live_btns");
   button.mousePressed(()=>{changeCanvasResolution(32);});
 
+  button = createButton('16x16');
+  button.class("style3 space");
+  button.parent("live_btns");
+  button.mousePressed(()=>{changeCanvasResolution(16);});
+
+  // button = createButton('8x8');
+  // button.class("style3 space");
+  // button.parent("live_btns");
+  // button.mousePressed(()=>{changeCanvasResolution(8);});
+
+  // button = createButton('4x4');
+  // button.class("style3 space");
+  // button.parent("live_btns");
+  // button.mousePressed(()=>{changeCanvasResolution(4);});
+
   canvas = windowHeight*0.75;
   full_size = 64;
   pixel = canvas/full_size;
