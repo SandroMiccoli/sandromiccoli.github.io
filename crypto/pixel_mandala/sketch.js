@@ -49,10 +49,10 @@ function setup(){
   button.parent("live_btns");
   button.mousePressed(()=>{changeCanvasResolution(16);});
 
-  // button = createButton('8x8');
-  // button.class("style3 space");
-  // button.parent("live_btns");
-  // button.mousePressed(()=>{changeCanvasResolution(8);});
+  button = createButton('8x8');
+  button.class("style3 space");
+  button.parent("live_btns");
+  button.mousePressed(()=>{changeCanvasResolution(8);});
 
   // button = createButton('4x4');
   // button.class("style3 space");
@@ -105,7 +105,8 @@ function draw(){
 function generateNextColor(){
   quarter_matrix_from = quarter_matrix;
 
-  noiseSeed(random(999999999));
+  seed = random(999999999);
+  noiseSeed(seed);
   for (var row = 0; row < half_size; row++) 
     for (var col = 0; col < half_size; col++){
       quarter_matrix_to[col][row] = noise(tan(row*col)+row*col/250)*320;
@@ -160,7 +161,7 @@ window.onresize = function() {
 
 function keyTyped() {
   if (key === 's') {
-    saveCanvas(cnv, 'horizontalLines', 'png');
+    saveCanvas(cnv, full_size+'_'+seed, 'png');
   }
 }
 
