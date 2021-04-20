@@ -54,10 +54,10 @@ function setup(){
   button.parent("live_btns");
   button.mousePressed(()=>{changeCanvasResolution(8);});
 
-  // button = createButton('4x4');
-  // button.class("style3 space");
-  // button.parent("live_btns");
-  // button.mousePressed(()=>{changeCanvasResolution(4);});
+  button = createButton('4x4');
+  button.class("style3 space");
+  button.parent("live_btns");
+  button.mousePressed(()=>{changeCanvasResolution(4);});
 
   canvas = windowHeight*0.75;
   full_size = 64;
