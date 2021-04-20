@@ -17,8 +17,10 @@ let inc = 0.05;
 let lerp_color = false;
 let cnv;
 
+let s;
+
 function changeCanvasResolution(res){
-  canvas = windowHeight*0.75;
+  canvas = s*0.75;
   full_size = res;
   pixel = canvas/full_size;
   half_size = full_size/2;
@@ -31,7 +33,8 @@ function changeCanvasResolution(res){
 }
 
 function setup(){
-  cnv = createCanvas(windowHeight*0.75, windowHeight*0.75);
+  s = (window.innerHeight<=window.innerWidth) ? window.innerHeight : window.innerWidth;
+  cnv = createCanvas(s*0.75, s*0.75);
   cnv.parent("live");
 
   button = createButton('64x64');
@@ -59,7 +62,8 @@ function setup(){
   button.parent("live_btns");
   button.mousePressed(()=>{changeCanvasResolution(4);});
 
-  canvas = windowHeight*0.75;
+
+  canvas = s*0.75;
   full_size = 64;
   pixel = canvas/full_size;
   half_size = full_size/2;
@@ -104,7 +108,7 @@ function draw(){
 
 function generateNextColor(){
   quarter_matrix_from = quarter_matrix;
-
+  
   seed = random(999999999);
   noiseSeed(seed);
   for (var row = 0; row < half_size; row++) 
@@ -114,7 +118,6 @@ function generateNextColor(){
       quarter_matrix_to[col][row] = (quarter_matrix_to[col][row]>140) ? map(quarter_matrix_to[col][row],0,320,100,240) : map(quarter_matrix_to[col][row],0,320,25,50);
     }
 }
-
 
 function lerpColors(){
   if(lerp_color){
@@ -157,6 +160,7 @@ String.prototype.hashCode = function(){
 
 window.onresize = function() {
   canvas.size(windowWidth, windowHeight);
+  changeCanvasResolution(full_size);
 };
 
 function keyTyped() {

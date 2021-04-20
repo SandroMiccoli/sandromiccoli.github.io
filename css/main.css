@@ -1048,6 +1048,7 @@
 		button.style3,
 		.button.style3 {
 			background-color: #9d7ed0;
+		    min-width: 55px;
 		}
 
 			input[type="submit"].style3:hover,
